@@ -10,7 +10,6 @@ public class StartupConsumerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StartupConsumerApplication.class, args);
-		//será que vai dar erro?
 	}
 
 }
