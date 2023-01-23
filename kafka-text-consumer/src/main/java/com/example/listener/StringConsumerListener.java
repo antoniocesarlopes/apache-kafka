@@ -16,7 +16,7 @@ public class StringConsumerListener {
 	@KafkaListener(groupId = "str-group-1", 
 			topicPartitions = { 
 					@TopicPartition(topic = "str-topic", partitions = {"0"})}, 
-			containerFactory = "stringContainerFactory" )
+			containerFactory = "checkStringContainerFactory" )
 	public void listenerTest1(String message) {
 		logger.info(String.format("TEST 1 ::: Recieved message %s", message));
 	}
@@ -24,7 +24,7 @@ public class StringConsumerListener {
 	@KafkaListener(groupId = "str-group-1", 
 			topicPartitions = { 
 					@TopicPartition(topic = "str-topic", partitions = {"1"})}, 
-			containerFactory = "stringContainerFactory" )
+			containerFactory = "checkStringContainerFactory" )
 	public void listenerTest2(String message) {
 		logger.info(String.format("TEST 2 ::: Recieved message %s", message));
 	}
