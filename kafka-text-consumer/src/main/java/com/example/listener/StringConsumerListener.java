@@ -16,7 +16,8 @@ public class StringConsumerListener {
 	@KafkaListener(groupId = "str-group-1", 
 			topicPartitions = { 
 					@TopicPartition(topic = "str-topic", partitions = {"0"})}, 
-			containerFactory = "checkStringContainerFactory" )
+			containerFactory = "checkStringContainerFactory",
+			errorHandler = "errorCustomHandler")
 	public void listenerTest1(String message) {
 		logger.info(String.format("TEST 1 ::: Recieved message %s", message));
 	}
@@ -24,7 +25,8 @@ public class StringConsumerListener {
 	@KafkaListener(groupId = "str-group-1", 
 			topicPartitions = { 
 					@TopicPartition(topic = "str-topic", partitions = {"1"})}, 
-			containerFactory = "checkStringContainerFactory" )
+			containerFactory = "checkStringContainerFactory",
+			errorHandler = "errorCustomHandler")
 	public void listenerTest2(String message) {
 		logger.info(String.format("TEST 2 ::: Recieved message %s", message));
 	}
@@ -34,6 +36,7 @@ public class StringConsumerListener {
 	@StringConsumercCustomListener(groupId = "str-group-2")
 	public void listenerTest3(String message) {
 		logger.info(String.format("TEST 3 ::: Recieved message %s", message));
+		throw new IllegalArgumentException();
 	}
 
 }
