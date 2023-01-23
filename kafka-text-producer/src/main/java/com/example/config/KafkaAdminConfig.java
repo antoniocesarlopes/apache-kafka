@@ -13,8 +13,13 @@ import org.springframework.kafka.core.KafkaAdmin;
 @Configuration
 public class KafkaAdminConfig {
 
+	private final KafkaProperties kafkaProperties;
+	
 	@Autowired
-	public KafkaProperties kafkaProperties;
+	public KafkaAdminConfig(KafkaProperties kafkaProperties) {
+		super();
+		this.kafkaProperties = kafkaProperties;
+	}
 
 	@Bean
 	public KafkaAdmin kafkaAdmin() {

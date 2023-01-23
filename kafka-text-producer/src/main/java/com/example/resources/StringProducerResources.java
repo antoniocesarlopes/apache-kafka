@@ -14,9 +14,14 @@ import com.example.services.StringProducerService;
 @RequestMapping("/producer")
 public class StringProducerResources {
 
-	@Autowired
-	private StringProducerService stringProducerService;
+	private final StringProducerService stringProducerService;
 	
+	@Autowired
+	public StringProducerResources(StringProducerService stringProducerService) {
+		super();
+		this.stringProducerService = stringProducerService;
+	}
+
 	@PostMapping
 	public ResponseEntity<?> sendMessage(@RequestBody String message) {
 		stringProducerService.sendMessage(message);

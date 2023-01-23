@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class KafkaTextProducerApplicationTests {
+class StartupConsumerApplicationTests {
 
 	@Test
 	void contextLoads() {

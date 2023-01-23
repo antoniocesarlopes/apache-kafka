@@ -14,8 +14,13 @@ public class StringProducerService {
 	private Logger logger = Logger.getLogger(StringProducerService.class.getName());
 	private static final String MESSAGE_TOPIC = "str-topic";
 
-	@Autowired
-	private KafkaTemplate<String, String> kafkaTemplate;
+	private final KafkaTemplate<String, String> kafkaTemplate;
+
+	@Autowired	
+	public StringProducerService(KafkaTemplate<String, String> kafkaTemplate) {
+		super();
+		this.kafkaTemplate = kafkaTemplate;
+	}
 
 	public void sendMessage(String message) {
 		kafkaTemplate.send(MESSAGE_TOPIC, message)

@@ -13,11 +13,16 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
 @Configuration
-public class KafkaStringProducerConfig {
+public class StringProducerConfig {
 
-	@Autowired
-	public KafkaProperties kafkaProperties;
+	private final KafkaProperties kafkaProperties;
 	
+	@Autowired
+	public StringProducerConfig(KafkaProperties kafkaProperties) {
+		super();
+		this.kafkaProperties = kafkaProperties;
+	}
+
 	@Bean
 	public ProducerFactory<String, String> producerFactory() {
 
