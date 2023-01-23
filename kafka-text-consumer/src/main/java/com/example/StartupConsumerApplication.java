@@ -10,7 +10,6 @@ public class StartupConsumerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StartupConsumerApplication.class, args);
-		//Simulando um conflito
 	}
 
 }
