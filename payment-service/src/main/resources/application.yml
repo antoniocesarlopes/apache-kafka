@@ -1,8 +1,6 @@
-server::
-  port:: 8000
-spring::
+server:
+  port: ${PORT:8000}
+spring:
   kafka:
-    producer::
-      bootstrap-servers:: localhost:29092    - 
-  
-  
+    producer:
+      bootstrap-servers: ${KAFKA_HOST:localhost:29092}
